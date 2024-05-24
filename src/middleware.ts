@@ -1,4 +1,3 @@
-import NextAuth from "next-auth";
 import { auth } from "./auth";
 import { authRoutes, publicRoutes } from "./routes";
 import { NextResponse } from "next/server";
