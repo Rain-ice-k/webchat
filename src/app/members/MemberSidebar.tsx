@@ -14,15 +14,16 @@ import { usePathname } from "next/navigation";
 
 type Props = {
   member: Member;
+  navLinks: {name:string, href:string}[]
 };
-export default function MemberSidebar({ member }: Props) {
+export default function MemberSidebar({ member, navLinks}: Props) {
     const pathname = usePathname()
   const basePath = `/members/${member.userId}`;
-  const navLinks = [
-    { name: "Profile", href: `${basePath}` },
-    { name: "Photos", href: `${basePath}/photos` },
-    { name: "Chat", href: `${basePath}/chat` },
-  ];
+  // const navLinks = [
+  //   { name: "Profile", href: `${basePath}` },
+  //   { name: "Photos", href: `${basePath}/photos` },
+  //   { name: "Chat", href: `${basePath}/chat` },
+  // ];
   return (
     <Card className="w-full mt-10 items-center h-[80vh">
       <Image
@@ -58,7 +59,7 @@ export default function MemberSidebar({ member }: Props) {
           ))}
         </nav>
       </CardBody>
-      <CardFooter>
+      <CardFooter className="-mt-5">
         <Button
           as={Link}
           href="/members"

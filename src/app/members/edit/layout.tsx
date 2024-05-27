@@ -3,24 +3,19 @@ import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import MemberSidebar from "../MemberSidebar";
 import { Card } from "@nextui-org/react";
+import { getAuthUserId } from "@/app/actions/authActions";
 
-export default async function layout({
-  children,
-  params,
-}: {
-  children: ReactNode;
-  params: { userId: string };
-}) {
-  const member = await getMemberByUserId(params.userId);
-  const basePath = `/members/${member?.userId}`;
-    const navLinks = [
-    { name: "Profile", href: `${basePath}` },
-    { name: "Photos", href: `${basePath}/photos` },
-    { name: "Chat", href: `${basePath}/chat` },
-  ];
+export default async function layout({children,}: {children: ReactNode}) {
+  const userId = await getAuthUserId()
+  const member = await getMemberByUserId(userId);
   if (!member) return notFound();
+  const basePath = `/members/edit`;
+  const navLinks = [
+    { name: "编辑简介", href: `${basePath}` },
+    { name: "更新图片", href: `${basePath}/photos` },
+  ];
   return (
-    <div className="grid -mt-20 grid-cols-12 gap-5 h-[80vh]">
+    <div className="-mt-20 grid grid-cols-12 gap-5 h-[80vh]">
       <div className="col-span-3">
         <MemberSidebar member={member} navLinks={navLinks}/>
       </div>
