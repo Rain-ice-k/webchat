@@ -34,3 +34,10 @@ export function transformImageUrl(imageUrl?: string | null) {
 
   return `${imageUrl.slice(0, uploadIndex)}${transformation}${imageUrl.slice(uploadIndex)}`
 }
+export function truncateString(text?: string | null, num = 50) {
+  if (!text) return null;
+  if (text.length <= num) {
+      return text;
+  }
+  return text.slice(0, num) + '...';
+}
