@@ -12,7 +12,7 @@ export default function CardInnerWrapper({header, body, footer}: Props) {
         <>
             <CardHeader>
                 {typeof (header) === 'string' ? (
-                    <div className='text-2xl font-semibold text-secondary'>
+                    <div className='text-2xl font-semibold text-primary'>
                         {header}
                     </div>
                 ) : (

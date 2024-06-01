@@ -1,4 +1,5 @@
 'use client'
+import PresenceDot from "@/components/PresenceDot";
 import { calculateAge } from "@/lib/util";
 import {
   Button,
@@ -19,11 +20,6 @@ type Props = {
 export default function MemberSidebar({ member, navLinks}: Props) {
     const pathname = usePathname()
   const basePath = `/members/${member.userId}`;
-  // const navLinks = [
-  //   { name: "Profile", href: `${basePath}` },
-  //   { name: "Photos", href: `${basePath}/photos` },
-  //   { name: "Chat", href: `${basePath}/chat` },
-  // ];
   return (
     <Card className="w-full mt-10 items-center h-[80vh">
       <Image
@@ -33,11 +29,18 @@ export default function MemberSidebar({ member, navLinks}: Props) {
         alt="用户简介图像"
         className="rounded-full mt-6 aspect-square object-cover"
       />
-      <CardBody>
+      <CardBody className='overflow-hidden'>
         <div className="flex flex-col items-center">
-          <div className="text-2xl">
+        <div className="flex">
+        <div className="text-2xl">
             {member.name}, {calculateAge(member.dateOfBirth)}
           </div>
+          <div>
+            <PresenceDot member={member}/>
+          </div>
+        </div>
+
+
           <div className="text-sm text-neutral-500">
             {member.city}, {member.country}
           </div>

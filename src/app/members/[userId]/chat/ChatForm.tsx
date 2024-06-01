@@ -49,7 +49,7 @@ export default function ChatForm() {
                 <Button
                     type='submit'
                     isIconOnly
-                    color='secondary'
+                    color='primary'
                     radius='full'
                     isLoading={isSubmitting}
                     isDisabled={!isValid || isSubmitting}

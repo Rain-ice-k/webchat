@@ -2,8 +2,9 @@ import { getAuthUserId } from '@/app/actions/authActions'
 import { getMemberByUserId, getMemberPhotosByUserId } from '@/app/actions/memberActions';
 import { CardHeader, Divider, CardBody} from '@nextui-org/react'
 import React from 'react'
-import MemberPhotoUpload from './MemberPhotoUpload';
-import MemberPhotos from '@/components/MemberPhoto';
+import MemberPhotos from '@/components/MemberPhoto'
+import MemberPhotoUpload from './MemberPhotoUpload'
+
 
 export default async function PhotosPage() {
     const userId = await getAuthUserId();
