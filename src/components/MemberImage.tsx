@@ -14,7 +14,7 @@ export default function MemberImage({ photo }: Props) {
         <div>
             {photo?.publicId ? (
                 <CldImage
-                    alt='Image of member'
+                    alt='用户图像'
                     src={photo.publicId}
                     width={300}
                     height={300}

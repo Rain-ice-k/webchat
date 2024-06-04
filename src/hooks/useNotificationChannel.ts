@@ -4,7 +4,6 @@ import { usePathname, useSearchParams } from "next/navigation"
 import { Channel } from "pusher-js"
 import { useCallback, useEffect, useRef } from "react"
 import useMessageStore from "./useMessageStore"
-import { toast } from "react-toastify"
 import { newMessageToast } from "@/components/NewMessageToast"
 import { newLikeToast } from "@/components/NotiicationToast"
 

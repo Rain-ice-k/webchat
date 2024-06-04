@@ -14,9 +14,9 @@ export default async function layout({
   const member = await getMemberByUserId(params.userId);
   const basePath = `/members/${member?.userId}`;
     const navLinks = [
-    { name: "Profile", href: `${basePath}` },
-    { name: "Photos", href: `${basePath}/photos` },
-    { name: "Chat", href: `${basePath}/chat` },
+    { name: "个人简介", href: `${basePath}` },
+    { name: "图片", href: `${basePath}/photos` },
+    { name: "聊天", href: `${basePath}/chat` },
   ];
   if (!member) return notFound();
   return (

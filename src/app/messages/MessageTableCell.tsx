@@ -23,8 +23,8 @@ export default function MessageTableCell({ item, columnKey, isOutbox, deleteMess
     }
 
     const footerButtons: ButtonProps[] = [
-        {color: 'default', onClick: onClose, children: 'Cancel'},
-        {color: 'secondary', onClick: onConfirmDeleteMessage, children: 'Confirm'},
+        {color: 'default', onClick: onClose, children: '取消'},
+        {color: 'primary', onClick: onConfirmDeleteMessage, children: '确定'},
     ];
 
     switch (columnKey) {
@@ -60,9 +60,9 @@ export default function MessageTableCell({ item, columnKey, isOutbox, deleteMess
                     <AppModal 
                         isOpen={isOpen}
                         onClose={onClose}
-                        header='Please confirm this action'
+                        header='请确认'
                         body={<div>
-                            Are you sure you want to delete this message? This cannot be undone.
+                            你确定要删除这条消息么？这是不可逆的。
                         </div>}
                         footerButtons={footerButtons}
                     />

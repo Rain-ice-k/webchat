@@ -2,7 +2,6 @@
 import { updateMemberProfile } from "@/app/actions/useActions"
 import { MemberEditSchema, memberEditSchema } from "@/lib/schemas/memberEditSchema"
 import { handleFormServerErrors } from "@/lib/util"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Input, Textarea } from "@nextui-org/react"
 import { Member } from "@prisma/client"
 import { useRouter } from "next/navigation"
@@ -16,7 +15,6 @@ type Props = {
 export default function EditForm({member}:Props){
     const router = useRouter()
     const {register, handleSubmit, reset, setError, formState: {isValid, isDirty,isSubmitting,errors}} = useForm<MemberEditSchema>({
-        // resolver:zodResolver(memberEditSchema),
         mode:'onTouched'
     })
     useEffect(()=>{

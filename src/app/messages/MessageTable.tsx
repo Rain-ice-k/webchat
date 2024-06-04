@@ -2,7 +2,6 @@
 
 import { MessageDto } from "@/types";
 import {
-  Button,
   Card,
   Table,
   TableBody,
@@ -10,7 +9,6 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-  getKeyValue,
 } from "@nextui-org/react";
 import MessageTableCell from "./MessageTableCell";
 import useMessages from "@/hooks/useMessages";

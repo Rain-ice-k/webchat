@@ -1,34 +1,46 @@
-import { auth, signOut } from "@/auth";
-import { Button } from "@nextui-org/react";
-import { FaRegSmile } from "react-icons/fa";
+import { auth } from '@/auth';
+import { Button } from '@nextui-org/react';
+import Link from 'next/link';
+import { GiMatchTip } from 'react-icons/gi';
 
 export default async function Home() {
   const session = await auth();
+
   return (
-    <div>
-      <h1 className="text-3xl">你好!</h1>
-      <h3 className="text-2xl font-semibold">用户session数据</h3>
+    <div className='flex flex-col justify-center items-center mt-20 gap-6 text-primary'>
+      <GiMatchTip size={100} />
+      <h1 className='text-4xl font-bold'>欢迎来到聊天室</h1>
       {session ? (
-        <div>
-          <pre>{JSON.stringify(session, null, 2)}</pre>
-          <form
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
-          >
-            <Button
-              type="submit"
-              color="primary"
-              variant="bordered"
-              startContent={<FaRegSmile size={20} />}
-            >
-              登出
-            </Button>
-          </form>
-        </div>
+        <Button
+          as={Link}
+          href='/members'
+          size='lg'
+          color='primary'
+          variant='bordered'
+        >
+          继续
+        </Button>
       ) : (
-        <div>未登录</div>
+        <div className='flex flex-row gap-4'>
+          <Button
+            as={Link}
+            href='/login'
+            size='lg'
+            color='primary'
+            variant='bordered'
+          >
+            登录
+          </Button>
+          <Button
+            as={Link}
+            href='/register'
+            size='lg'
+            color='primary'
+            variant='bordered'
+          >
+            注册
+          </Button>
+        </div>
       )}
     </div>
   );

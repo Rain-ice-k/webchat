@@ -8,7 +8,7 @@ export function formatShortDateTime(date: Date) {
   return format(date, 'dd MMM yy h:mm:a')
 }
 export function timeAgo(date: string) {
-  return formatDistance(new Date(date), new Date()) + ' ago';
+  return formatDistance(new Date(date), new Date()) + ' 前';
 }
 export function handleFormServerErrors<TFieldValues extends FieldValues>(
     errorResponse:{error:string |ZodIssue[]},

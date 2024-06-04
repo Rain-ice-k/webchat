@@ -40,7 +40,7 @@ export default function ChatForm() {
             <div className='flex items-center gap-2'>
                 <Input
                     fullWidth
-                    placeholder='Type a message'
+                    placeholder='请输入消息'
                     variant='faded'
                     {...register('text')}
                     isInvalid={!!errors.text}

@@ -5,7 +5,6 @@ import { getMessageThread } from '@/app/actions/messageActions'
 import { getAuthUserId } from '@/app/actions/authActions';
 import MessageList from './MessageList';
 import { createChatId } from '@/lib/util';
-import { prisma } from '@/lib/prisma';
 
 export default async function ChatPage({params}: {params: {userId: string}}) {
     const userId = await getAuthUserId();
@@ -13,7 +12,7 @@ export default async function ChatPage({params}: {params: {userId: string}}) {
     const chatId = await createChatId(userId,params.userId)
     return (
         <CardInnerWrapper 
-            header='Chat'
+            header='聊天'
             body={
               <MessageList initialMessages={messages} currentUserId={userId} chatId={chatId}/>
             }
