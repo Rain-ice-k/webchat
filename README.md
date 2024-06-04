@@ -8,6 +8,7 @@
 首先安装依赖:
 ```bash
 npm i
+然后在/.env 文件中填写你的信息（数据库，pusher，cloudinary信息）
 后启动服务：
 npm run dev
 # or
