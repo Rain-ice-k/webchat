@@ -7,7 +7,6 @@
 
 首先安装依赖:
 ```bash
-1:
 npm i
 后启动服务：
 npm run dev
