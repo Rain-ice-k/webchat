@@ -1,11 +1,10 @@
 "use client";
 
-import { Tab, Tabs } from "@nextui-org/react";
+import { Spinner, Tab, Tabs } from "@nextui-org/react";
 import { Member } from "@prisma/client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Key, useTransition } from "react";
 import MemberCard from "../members/MemberCard";
-import LodingComponent from "@/components/LodingComponent";
 
 type Props = {
   members: Member[];
@@ -33,36 +32,39 @@ export default function ListsTab({ members, likeIds }: Props) {
 
   return (
     <div className="flex w-full flex-col gap-5">
+      <div className="flex items-center">
       <Tabs
         aria-label="关注列表"
-        items={tabs}
         color="primary"
         onSelectionChange={(key) => handleTabChange(key)}
       >
-        {(item) => (
-          <Tab key={item.id} title={item.label}>
-            {isPending ? (
-                <LodingComponent/>
-            ) : (
-              <>
-                {members.length > 0 ? (
-                  <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8">
-                    {members.map((member) => (
-                      <MemberCard
-                        key={member.id}
-                        member={member}
-                        likeIds={likeIds}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div>没有对应的成员</div>
-                )}
-              </>
-            )}
-          </Tab>
-        )}
+        {tabs.map((item) => (
+          <Tab key={item.id} title={item.label} />
+        ))}
       </Tabs>
+      {isPending && <Spinner color="primary" className="self-center ml-3"/>}
+      </div>
+
+      {tabs.map((item) => {
+        const isSelected = searchParams.get("type") === item.id;
+        return isSelected ? (
+          <div>
+            {members.length > 0 ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8">
+                {members.map((member) => (
+                  <MemberCard
+                    key={member.id}
+                    member={member}
+                    likeIds={likeIds}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div>没有对应的成员</div>
+            )}
+          </div>
+        ) : null;
+      })}
     </div>
   );
 }

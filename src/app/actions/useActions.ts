@@ -52,6 +52,7 @@ export async function addImage(url: string, publicId: string) {
 }
 
 export async function setMainImage(photo: Photo) {
+    if(!photo.isApproved) throw new Error('图片需经过审核')
     try {
         const userId = await getAuthUserId();
 
@@ -92,3 +93,15 @@ export async function deleteImage(photo: Photo) {
     }
 }
 
+export async function getUserInfoForNav() {
+    try {
+        const userId = await getAuthUserId();
+        return prisma.user.findUnique({
+            where: {id: userId},
+            select: {name: true, image: true}
+        })
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}

@@ -17,7 +17,7 @@ export default function CardWrapper({ body, footer, headerIcon: Icon, headerText
         <div className='flex items-center justify-center vertical-center'>
             <Card className='w-2/5 mx-auto p-5'>
                 <CardHeader className='flex flex-col items-center justify-center'>
-                    <div className='flex flex-col gap-2 items-center text-secondary'>
+                    <div className='flex flex-col gap-2 items-center text-primary'>
                         <div className='flex flex-row items-center gap-3'>
                             <Icon size={30} />
                             <h1 className='text-3xl font-semibold'>{headerText}</h1>
@@ -32,7 +32,7 @@ export default function CardWrapper({ body, footer, headerIcon: Icon, headerText
                 </CardBody>}
                 <CardFooter className='flex flex-col justify-center'>
                     {action && (
-                        <Button onClick={action} fullWidth color='secondary' variant='bordered'>
+                        <Button onClick={action} fullWidth color='primary' variant='bordered'>
                             {actionLabel}
                         </Button>
                     )}

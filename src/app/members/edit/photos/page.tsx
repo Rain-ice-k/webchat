@@ -14,7 +14,7 @@ export default async function PhotosPage() {
     return (
         <>
             <CardHeader className='flex flex-row justify-between items-center'>
-                <div className='text-2xl font-semibold text-secondary'>
+                <div className='text-2xl font-semibold text-primary'>
                     编辑简介
                 </div>
                 <MemberPhotoUpload />

@@ -1,7 +1,7 @@
 export const membersData = [
     {
-        email: "lisa@test.com",
-        username: 'lisa',
+        email: "lab1@test.com",
+        username: 'lab1',
         gender: "female",
         dateOfBirth: "1986-07-22",
         name: "Lisa",
@@ -13,8 +13,8 @@ export const membersData = [
         image: "/images/f1.jpeg"
     },
     {
-        email: "karen@test.com",
-        username: 'karen',
+        email: "lab2@test.com",
+        username: 'lab2',
         gender: "female",
         dateOfBirth: "1995-10-12",
         name: "Karen",
@@ -26,7 +26,7 @@ export const membersData = [
         image: "/images/f2.jpeg"
     },
     {
-        email: "margo@test.com",
+        email: "lab3@test.com",
         username: 'margo',
         gender: "female",
         dateOfBirth: "1989-01-24",

@@ -13,8 +13,8 @@ export default function ImageUploadButton({onUploadImage}: Props) {
       onSuccess={onUploadImage}
       signatureEndpoint='/api/sign-image'
       uploadPreset='nm-demo'
-      className={`flex items-center gap-2 border-2 border-secondary text-secondary 
-        rounded-lg py-2 px-4 hover:bg-secondary/10`}
+      className={`flex items-center gap-2 border-2 border-primary text-primary 
+        rounded-lg py-2 px-4 hover:bg-primary/10`}
     >
       <HiPhoto size={28} />
       上传新图片

@@ -2,7 +2,7 @@ import { Spinner } from "@nextui-org/react";
 
 export default function LodingComponent({label}:{label?:string}) {
   return (
-   <div className="fixed inset-0 flex justify-center items-center">
+   <div className="flex justify-center items-center vertical-center">
         <Spinner
             label={label||'加载中'}
             color='primary'
