@@ -8,7 +8,7 @@
 首先安装依赖:
 ```bash
 npm i
-然后在/.env 文件中填写你的信息（数据库，pusher，cloudinary信息）
+然后在/.env 文件中填写你的信息（数据库地址,pusher,cloudinary,resend（用于身份验证的邮件发送）信息）
 后启动服务：
 npm run dev
 # or
